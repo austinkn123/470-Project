@@ -1,0 +1,175 @@
+--SQL to create Schema
+CREATE SCHEMA `schoolsystem` ;
+
+--SQL to create Tables
+-- Create university table
+CREATE TABLE `schoolsystem`.`university` (
+  `campus` VARCHAR(50) NULL,
+  `address` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`address`));
+
+-- Create department table
+CREATE TABLE `schoolsystem`.`department` (
+  `name` VARCHAR(50) NOT NULL,
+  `major` VARCHAR(45) NULL,
+  `program` VARCHAR(45) NULL,
+  `class` VARCHAR(45) NULL,
+  PRIMARY KEY (`name`));
+
+-- Create major table
+CREATE TABLE `schoolsystem`.`major` (
+  `name` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`name`));
+
+-- Create program table
+CREATE TABLE `schoolsystem`.`program` (
+  `name` VARCHAR(50) NOT NULL,
+  `professor` VARCHAR(45) NULL,
+  PRIMARY KEY (`name`));
+
+-- Create class table
+CREATE TABLE `schoolsystem`.`class` (
+  `code` INT NOT NULL,
+  `student` VARCHAR(45) NULL,
+  PRIMARY KEY (`code`));
+
+-- Create professor table
+CREATE TABLE `schoolsystem`.`professor` (
+  `idnumber` INT NOT NULL,
+  `student` VARCHAR(45) NULL,
+  `major` VARCHAR(45) NULL,
+  `department` VARCHAR(45) NULL,
+  `program` VARCHAR(45) NULL,
+  PRIMARY KEY (`idnumber`));
+
+-- Create student table
+CREATE TABLE `schoolsystem`.`student` (
+  `idnumber` INT NOT NULL,
+  `major` VARCHAR(45) NULL,
+  `program` VARCHAR(45) NULL,
+  `professor` VARCHAR(45) NULL,
+  `university` VARCHAR(45) NULL,
+  PRIMARY KEY (`idnumber`));
+
+--SQL to populate Schema
+-- University
+INSERT INTO `schoolsystem`.`university` (`address`,`campus`) VALUES 
+('Texas, City','Texas Campus');
+INSERT INTO `schoolsystem`.`university` (`address`,`campus`) VALUES 
+('New York, State','New York Campus'); 
+INSERT INTO `schoolsystem`.`university` (`address`,`campus`) VALUES 
+('Florida, College City','Florida Campus'); 
+
+-- Department
+INSERT INTO `schoolsystem`.`department` (`name`,`major`,`program`,`class`) VALUES 
+('Biology','Bio Chemistry','Science Program','Bio 101'); 
+INSERT INTO `schoolsystem`.`department` (`name`,`major`,`program`,`class`) VALUES 
+('Computer Science','Computer Science','Coding Program','Prgmming 201'); 
+INSERT INTO `schoolsystem`.`department` (`name`,`major`,`program`,`class`) VALUES 
+('Medical','Nursing','Nursing Program','First Aid 320'); 
+INSERT INTO `schoolsystem`.`department` (`name`,`major`,`program`,`class`) VALUES 
+('Accounting','Numbers Worker','Accounting Program','Numbers 320'); 
+INSERT INTO `schoolsystem`.`department` (`name`,`major`,`program`,`class`) VALUES 
+('Media','Video Media','Video media business','Weather Anchor 420'); 
+INSERT INTO `schoolsystem`.`department` (`name`,`major`,`program`,`class`) VALUES 
+('Engineering','Civil Engineering','Engineering Program','Physics 210'); 
+
+-- Program
+INSERT INTO `schoolsystem`.`program` (`name`,`professor`) VALUES 
+('Automotive Technology','Prof. Smith'); 
+INSERT INTO `schoolsystem`.`program` (`name`,`professor`) VALUES 
+('Criminal Justice','Prof. Jack'); 
+INSERT INTO `schoolsystem`.`program` (`name`,`professor`) VALUES 
+('Law','Prof. Wilco'); 
+INSERT INTO `schoolsystem`.`program` (`name`,`professor`) VALUES 
+('Network Administration','Prof. Forb'); 
+INSERT INTO `schoolsystem`.`program` (`name`,`professor`) VALUES 
+('Pharmacy','Prof. Natsh'); 
+INSERT INTO `schoolsystem`.`program` (`name`,`professor`) VALUES 
+('Video Game Design','Prof. Brewer'); 
+INSERT INTO `schoolsystem`.`program` (`name`,`professor`) VALUES 
+('Information Technology','Prof. Cory'); 
+
+-- Major
+INSERT INTO `schoolsystem`.`major` (`name`) VALUES 
+('Agriculture'); 
+INSERT INTO `schoolsystem`.`major` (`name`) VALUES 
+('Food Science'); 
+INSERT INTO `schoolsystem`.`major` (`name`) VALUES 
+('Liberal Arts'); 
+INSERT INTO `schoolsystem`.`major` (`name`) VALUES 
+('Art'); 
+INSERT INTO `schoolsystem`.`major` (`name`) VALUES 
+('Logistics'); 
+INSERT INTO `schoolsystem`.`major` (`name`) VALUES 
+('Marketing'); 
+INSERT INTO `schoolsystem`.`major` (`name`) VALUES 
+('Banking'); 
+INSERT INTO `schoolsystem`.`major` (`name`) VALUES 
+('Journalism'); 
+INSERT INTO `schoolsystem`.`major` (`name`) VALUES 
+('Advertising'); 
+INSERT INTO `schoolsystem`.`major` (`name`) VALUES 
+('Cosmetology'); 
+
+-- Class 3 digit
+INSERT INTO `schoolsystem`.`class` (`code`,`student`) VALUES 
+('257','Prof Amber'); 
+INSERT INTO `schoolsystem`.`class` (`code`,`student`) VALUES 
+('456','Prof Lesly'); 
+INSERT INTO `schoolsystem`.`class` (`code`,`student`) VALUES 
+('786','Prof Bryn'); 
+INSERT INTO `schoolsystem`.`class` (`code`,`student`) VALUES 
+('537','Prof Deforest'); 
+INSERT INTO `schoolsystem`.`class` (`code`,`student`) VALUES 
+('688','Prof Carter'); 
+INSERT INTO `schoolsystem`.`class` (`code`,`student`) VALUES 
+('387','Prof Fae'); 
+INSERT INTO `schoolsystem`.`class` (`code`,`student`) VALUES 
+('357','Prof Dene'); 
+INSERT INTO `schoolsystem`.`class` (`code`,`student`) VALUES 
+('217','Prof Sidony'); 
+
+-- Professor
+INSERT INTO `schoolsystem`.`professor` (`idnumber`,`student`,`major`,`department`, `program`) VALUES 
+('453452','Charlotte Tasha', 'Agriculture', 'Agriculture department', 'Agriculture program'); 
+INSERT INTO `schoolsystem`.`professor` (`idnumber`,`student`,`major`,`department`, `program`) VALUES 
+('3455432','Journey Richardine', 'Art', 'Art department', 'Art program'); 
+INSERT INTO `schoolsystem`.`professor` (`idnumber`,`student`,`major`,`department`, `program`) VALUES 
+('986764','Harding Aspen', 'Cinematography', 'Cinematography department', 'Cinematography program'); 
+INSERT INTO `schoolsystem`.`professor` (`idnumber`,`student`,`major`,`department`, `program`) VALUES 
+('765673','Daisy Jayda', 'Interior Design', 'Interior Design department', 'Interior Design program'); 
+INSERT INTO `schoolsystem`.`professor` (`idnumber`,`student`,`major`,`department`, `program`) VALUES 
+('875254','Lowell Ina', 'Accounting', 'Accounting department', 'Accounting program'); 
+INSERT INTO `schoolsystem`.`professor` (`idnumber`,`student`,`major`,`department`, `program`) VALUES 
+('000558','Jan Christian', 'Marketing', 'Marketing department', 'Marketing program'); 
+INSERT INTO `schoolsystem`.`professor` (`idnumber`,`student`,`major`,`department`, `program`) VALUES 
+('764912','Jeb Titus', 'Cosmetology', 'Cosmetology department', 'Cosmetology program'); 
+INSERT INTO `schoolsystem`.`professor` (`idnumber`,`student`,`major`,`department`, `program`) VALUES 
+('097646','Brook Joisse', 'Criminal Justice', 'Criminal Justice department', 'Criminal Justice program'); 
+INSERT INTO `schoolsystem`.`professor` (`idnumber`,`student`,`major`,`department`, `program`) VALUES 
+('134532','Avah Herbie', 'Counseling', 'Counseling department', 'Counseling program'); 
+INSERT INTO `schoolsystem`.`professor` (`idnumber`,`student`,`major`,`department`, `program`) VALUES 
+('087593','Alyce Derby', 'Engineering', 'Engineering department', 'Engineering program'); 
+
+-- Student
+INSERT INTO `schoolsystem`.`student` (`idnumber`,`major`,`program`,`professor`,`university`) VALUES 
+('656543','Agriculture','Agriculture program','Prof Camilla','Florida University'); 
+INSERT INTO `schoolsystem`.`student` (`idnumber`,`major`,`program`,`professor`,`university`) VALUES 
+('168406','Art','Art program','Prof Denise','Florida University'); 
+INSERT INTO `schoolsystem`.`student` (`idnumber`,`major`,`program`,`professor`,`university`) VALUES 
+('105746','Cinematography','Cinematography program','Prof Drummond','New York University'); 
+INSERT INTO `schoolsystem`.`student` (`idnumber`,`major`,`program`,`professor`,`university`) VALUES 
+('664524','Interior Design','Interior Design program','Prof Bryanna','Florida University'); 
+INSERT INTO `schoolsystem`.`student` (`idnumber`,`major`,`program`,`professor`,`university`) VALUES 
+('210574','Accounting','Accounting program','Prof Karl','New York University'); 
+INSERT INTO `schoolsystem`.`student` (`idnumber`,`major`,`program`,`professor`,`university`) VALUES 
+('120460','Marketing','Marketing program','Prof Tilda','Florida University'); 
+INSERT INTO `schoolsystem`.`student` (`idnumber`,`major`,`program`,`professor`,`university`) VALUES 
+('547925','Cosmetology','Cosmetology program','Prof Marianne','New York University'); 
+INSERT INTO `schoolsystem`.`student` (`idnumber`,`major`,`program`,`professor`,`university`) VALUES 
+('975412','Criminal Justice','Criminal Justice program','Prof Harlee','Virginia Univeristy'); 
+INSERT INTO `schoolsystem`.`student` (`idnumber`,`major`,`program`,`professor`,`university`) VALUES 
+('014675','Counseling','Counseling program','Prof Margaretta','New Jersey University'); 
+INSERT INTO `schoolsystem`.`student` (`idnumber`,`major`,`program`,`professor`,`university`) VALUES 
+('678254','Engineering','Engineering program','Prof Hailie','New York University');
