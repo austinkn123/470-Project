@@ -1,0 +1,43 @@
+.logo {
+  height: 40vmin;
+  pointer-events: none;
+  float: left;
+}
+
+body {
+  background-color:rgb(88, 99, 100);
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Columns */
+.col {
+  display: flex;
+  background-color: white;
+  vertical-align: middle;
+  text-align:center;
+  border-radius: 25px;
+  margin: 2vh;
+  width: 47%;
+}
+
+.col ul {
+  margin: 5px;
+  padding: 5px;
+  list-style:none;
+  text-align:center;
+}
+
+.col a{
+  color:black;
+}
+
+.title {
+  display: flex;
+  font-size: 50px;
+  color:rgb(33, 199, 214);
+  padding-left:2rem
+}
